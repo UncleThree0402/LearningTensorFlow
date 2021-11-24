@@ -7,7 +7,7 @@ scalar = tf.constant(10)
 print(scalar)
 print(scalar.ndim)
 
-vector = tf.constant([[10, 10]])
+vector = tf.constant([10, 10])
 print(vector)
 print(vector.ndim)
 
