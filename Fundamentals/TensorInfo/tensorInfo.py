@@ -12,3 +12,8 @@ print("Shape of last axis", tensorA.shape[-1])
 print("Size of tensor : ", tf.size(tensorA))
 print("Size of tensor : ", tf.size(tensorA).numpy())
 
+# Find 0 to 2 item of each axis in tensor
+print(tensorA[:2, :2, :2, :2])
+
+# Find 0 to 2 item of each axis in tensor except last axis
+print(tensorA[:2, :2, :2, :])
