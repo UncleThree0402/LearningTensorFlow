@@ -11,4 +11,6 @@ Check size with : tf.size(tensor)
 
 <pre>
 Finding index of tensor is same with python list
+Resize with tensor[..., tf.newaxis] 
+Or tf.expand_dims(tensor,axis=n)
 </pre>

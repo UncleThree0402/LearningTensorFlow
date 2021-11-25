@@ -17,3 +17,15 @@ print(tensorA[:2, :2, :2, :2])
 
 # Find 0 to 2 item of each axis in tensor except last axis
 print(tensorA[:2, :2, :2, :])
+
+# Get last items of each row
+print(tensorA[:, :, :, -1])
+
+# New axis
+tensorB = tensorA[..., tf.newaxis]
+print(tensorB)
+
+# New axis with other method
+
+tensorC = tf.expand_dims(tensorA, axis=-1)
+print(tensorC)
