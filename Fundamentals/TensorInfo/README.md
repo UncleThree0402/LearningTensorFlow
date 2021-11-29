@@ -13,4 +13,8 @@ Check size with : tf.size(tensor)
 Finding index of tensor is same with python list
 Resize with tensor[..., tf.newaxis] 
 Or tf.expand_dims(tensor,axis=n)
+
+Squeezing Tensor:
+remove all axis with value one
+tf.squeeze(tensor)
 </pre>
