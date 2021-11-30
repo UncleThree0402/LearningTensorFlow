@@ -15,13 +15,15 @@ tf.random.set_seed(42)
 
 # Sequential API
 model = tf.keras.Sequential([
+    tf.keras.layers.Dense(1),
+    tf.keras.layers.Dense(4, activation="relu"),
     tf.keras.layers.Dense(1)
 ])
 
 model.compile(loss=tf.keras.losses.mae,
-              optimizer=tf.keras.optimizers.SGD(),
+              optimizer=tf.keras.optimizers.Adam(learning_rate=0.01),
               metrics=["mae"])
 
-model.fit(tf.expand_dims(X, axis=-1), y, epochs=5000)
+model.fit(tf.expand_dims(X, axis=-1), y, epochs=500)
 
 print(model.predict([10]))
