@@ -31,4 +31,6 @@ X_test = ct.transform(X_test)
 ```
 
 ## Loss & Mae Graph
+After scaling the data, the time used to training decrease from 49 epochs to 30 epochs.
+<br >
 ![LossNMae](https://github.com/UncleThree0402/LearningTensorFlow/blob/master/NeuralNetworkRegression/Scaling/Loss_Mae_plot.png?raw=true)
