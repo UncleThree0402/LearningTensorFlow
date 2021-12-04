@@ -5,7 +5,8 @@ from tensorflow.keras.utils import plot_model
 import pandas as pd
 import os
 
-os.environ["PATH"] += os.pathsep + 'C:/Program Files/Graphviz/bin/'
+# For window
+# os.environ["PATH"] += os.pathsep + 'C:/Program Files/Graphviz/bin/'
 
 X = tf.range(-10, 10, dtype=tf.int32)
 y = tf.subtract(X, 24)
