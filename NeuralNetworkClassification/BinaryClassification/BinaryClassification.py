@@ -58,17 +58,35 @@ model_3 = tf.keras.Sequential([
     tf.keras.layers.Dense(1)
 ])
 
-model_3.compile(loss=tf.keras.losses.BinaryCrossentropy(),
-                optimizer=tf.keras.optimizers.Adam(),
+# linear activation
+model_4 = tf.keras.Sequential([
+    tf.keras.layers.Dense(1, activation="linear")
+])
+
+# non-linear activation
+model_5 = tf.keras.Sequential([
+    tf.keras.layers.Dense(1, activation="relu")
+])
+
+# more layers
+model_6 = tf.keras.Sequential([
+    tf.keras.layers.Dense(4, activation="relu"),
+    tf.keras.layers.Dense(4, activation="relu"),
+    tf.keras.layers.Dense(1, activation="sigmoid")
+])
+
+
+model_6.compile(loss=tf.keras.losses.BinaryCrossentropy(),
+                optimizer=tf.keras.optimizers.Adam(learning_rate=0.01),
                 metrics=["accuracy"])
 
-history = model_3.fit(train_X, train_y, epochs=100, verbose=0)
+history = model_6.fit(train_X, train_y, epochs=25, verbose=1)
 
-print(model_3.evaluate(test_X, test_y))
+print(model_6.evaluate(test_X, test_y))
 
 pd.DataFrame(history.history).plot()
 plt.xlabel("epochs")
 plt.ylabel("accuracy")
 plt.show()
 
-plot_decision_boundary(mo, X, y)
+plot_decision_boundary(model_6, X, y)
