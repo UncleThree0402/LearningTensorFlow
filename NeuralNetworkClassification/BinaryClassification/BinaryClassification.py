@@ -4,7 +4,10 @@ import matplotlib.pyplot as plt
 import numpy as np
 from sklearn.datasets import make_circles
 from sklearn.model_selection import train_test_split
+from tensorflow.keras.utils import plot_model
+import os
 
+os.environ["PATH"] += os.pathsep + 'C:/Program Files/Graphviz/bin/'
 
 def plot_decision_boundary(model, X, y):
     x_min, x_max = X[:, 0].min() - 0.1, X[:, 0].max() + 0.1
@@ -21,6 +24,8 @@ def plot_decision_boundary(model, X, y):
     plt.scatter(X[:, 0], X[:, 1], c=y, cmap=plt.cm.RdYlBu)
     plt.xlim(xx.min(), xx.max())
     plt.ylim(yy.min(), yy.max())
+    plt.colorbar()
+    plt.title(model.name + " Decision Boundary")
     plt.show()
 
 
@@ -31,8 +36,8 @@ X, y = make_circles(2000,
 
 circles = pd.DataFrame({"X0": X[:, 0], "X1": X[:, 1], "label": y})
 
-plt.figure(figsize=(15, 12))
-plt.scatter(X[:, 0], X[:, 1], c=y, cmap=plt.cm.RdYlBu)
+# plt.figure(figsize=(15, 12))
+# plt.scatter(X[:, 0], X[:, 1], c=y, cmap=plt.cm.RdYlBu)
 # plt.show()
 
 # Shape : X = (2000, 2) y = (2000,)
@@ -45,48 +50,50 @@ tf.random.set_seed(42)
 
 model_1 = tf.keras.Sequential([
     tf.keras.layers.Dense(1)
-])
+], name="model_1")
 
 model_2 = tf.keras.Sequential([
     tf.keras.layers.Dense(1),
     tf.keras.layers.Dense(1)
-])
+], name="model_2")
 
 model_3 = tf.keras.Sequential([
     tf.keras.layers.Dense(100),
     tf.keras.layers.Dense(10),
     tf.keras.layers.Dense(1)
-])
+], name="model_3")
 
 # linear activation
 model_4 = tf.keras.Sequential([
     tf.keras.layers.Dense(1, activation="linear")
-])
+], name="model_4")
 
 # non-linear activation
 model_5 = tf.keras.Sequential([
     tf.keras.layers.Dense(1, activation="relu")
-])
+], name="model_5")
 
 # more layers
 model_6 = tf.keras.Sequential([
     tf.keras.layers.Dense(4, activation="relu"),
     tf.keras.layers.Dense(4, activation="relu"),
     tf.keras.layers.Dense(1, activation="sigmoid")
-])
-
+], name="model_6")
 
 model_6.compile(loss=tf.keras.losses.BinaryCrossentropy(),
                 optimizer=tf.keras.optimizers.Adam(learning_rate=0.01),
                 metrics=["accuracy"])
 
-history = model_6.fit(train_X, train_y, epochs=25, verbose=1)
+history = model_6.fit(train_X, train_y, epochs=100, verbose=1)
+
+plot_model(model=model_6, to_file="Image/model_6.png", show_shapes=True)
 
 print(model_6.evaluate(test_X, test_y))
 
 pd.DataFrame(history.history).plot()
 plt.xlabel("epochs")
 plt.ylabel("accuracy")
+plt.title(model_6.name + " Loss Curves")
 plt.show()
 
 plot_decision_boundary(model_6, X, y)
