@@ -59,6 +59,15 @@ model_2 = tf.keras.Sequential([
 ])
 ```
 
+#### Model Structure
+![model_2](https://github.com/UncleThree0402/LearningTensorFlow/blob/master/NeuralNetworkClassification/BinaryClassification/Image/model_2.png)
+
+#### Loss Curves
+![model_2_loss_curves](https://github.com/UncleThree0402/LearningTensorFlow/blob/master/NeuralNetworkClassification/BinaryClassification/Image/model_2_loss_curves.png)
+
+#### Decision Boundary
+![model_2_decision_boundary](https://github.com/UncleThree0402/LearningTensorFlow/blob/master/NeuralNetworkClassification/BinaryClassification/Image/model_2_decision_bounday.png)
+
 ### Model Three
 ```python
 model_3 = tf.keras.Sequential([
@@ -67,6 +76,14 @@ model_3 = tf.keras.Sequential([
     tf.keras.layers.Dense(1)
 ])
 ```
+#### Model Structure
+![model_3](https://github.com/UncleThree0402/LearningTensorFlow/blob/master/NeuralNetworkClassification/BinaryClassification/Image/model_3.png)
+
+#### Loss Curves
+![model_3_loss_curves](https://github.com/UncleThree0402/LearningTensorFlow/blob/master/NeuralNetworkClassification/BinaryClassification/Image/model_3_loss_curves.png)
+
+#### Decision Boundary
+![model_3_decision_boundary](https://github.com/UncleThree0402/LearningTensorFlow/blob/master/NeuralNetworkClassification/BinaryClassification/Image/model_3_decision_bounday.png)
 
 ### Model Four
 ```python
@@ -74,6 +91,14 @@ model_4 = tf.keras.Sequential([
     tf.keras.layers.Dense(1, activation="linear")
 ])
 ```
+#### Model Structure
+![model_4](https://github.com/UncleThree0402/LearningTensorFlow/blob/master/NeuralNetworkClassification/BinaryClassification/Image/model_4.png)
+
+#### Loss Curves
+![model_4_loss_curves](https://github.com/UncleThree0402/LearningTensorFlow/blob/master/NeuralNetworkClassification/BinaryClassification/Image/model_4_loss_curves.png)
+
+#### Decision Boundary
+![model_4_decision_boundary](https://github.com/UncleThree0402/LearningTensorFlow/blob/master/NeuralNetworkClassification/BinaryClassification/Image/model_4_decision_bounday.png)
 
 ### Model Five
 ```python
@@ -81,6 +106,14 @@ model_5 = tf.keras.Sequential([
     tf.keras.layers.Dense(1, activation="relu")
 ])
 ```
+#### Model Structure
+![model_5](https://github.com/UncleThree0402/LearningTensorFlow/blob/master/NeuralNetworkClassification/BinaryClassification/Image/model_5.png)
+
+#### Loss Curves
+![model_5_loss_curves](https://github.com/UncleThree0402/LearningTensorFlow/blob/master/NeuralNetworkClassification/BinaryClassification/Image/model_5_loss_curves.png)
+
+#### Decision Boundary
+![model_5_decision_boundary](https://github.com/UncleThree0402/LearningTensorFlow/blob/master/NeuralNetworkClassification/BinaryClassification/Image/model_5_decision_bounday.png)
 
 ### Model Six
 ```python
@@ -90,3 +123,11 @@ model_6 = tf.keras.Sequential([
     tf.keras.layers.Dense(1, activation="sigmoid")
 ])
 ```
+#### Model Structure
+![model_6](https://github.com/UncleThree0402/LearningTensorFlow/blob/master/NeuralNetworkClassification/BinaryClassification/Image/model_6.png)
+
+#### Loss Curves
+![model_6_loss_curves](https://github.com/UncleThree0402/LearningTensorFlow/blob/master/NeuralNetworkClassification/BinaryClassification/Image/model_6_loss_curves.png)
+
+#### Decision Boundary
+![model_6_decision_boundary](https://github.com/UncleThree0402/LearningTensorFlow/blob/master/NeuralNetworkClassification/BinaryClassification/Image/model_6_decision_bounday.png)
