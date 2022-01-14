@@ -37,7 +37,7 @@ insurance_model = tf.keras.Sequential([
 ])
 
 insurance_model.compile(loss=tf.keras.losses.mae,
-                        optimizer=tf.keras.optimizers.Adam(learning_rate=0.01),
+                        optimizer=tf.keras.optimizers.Adam(learning_rate=0.02),
                         metrics=["mae"])
 
 # Stop Callback

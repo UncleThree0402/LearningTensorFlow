@@ -4,10 +4,11 @@ import matplotlib.pyplot as plt
 import numpy as np
 from sklearn.datasets import make_circles
 from sklearn.model_selection import train_test_split
+from sklearn import metrics
 from tensorflow.keras.utils import plot_model
 import os
 
-os.environ["PATH"] += os.pathsep + 'C:/Program Files/Graphviz/bin/'
+# os.environ["PATH"] += os.pathsep + 'C:/Program Files/Graphviz/bin/'
 
 
 def plot_decision_boundary(model, X, y):
@@ -45,25 +46,29 @@ model = tf.keras.Sequential([
 ], name="Model")
 
 model.compile(loss=tf.keras.losses.BinaryCrossentropy(),
-              optimizer=tf.keras.optimizers.Adam(learning_rate=0.01),
+              optimizer=tf.keras.optimizers.Adam(learning_rate=0.02),
               metrics=["accuracy"])
+# Metrics for classification : accuracy, precision(less fp), recall(less fn), f1_scores, confusion
 
 lr_scheduler = tf.keras.callbacks.LearningRateScheduler(lambda epochs: 1e-4 * 10 ** (epochs / 20))
+early = tf.keras.callbacks.EarlyStopping(monitor="accuracy", patience=5)
 lrs = 1e-4 * 10 ** (tf.range(100) / 20)
-history = model.fit(train_X, train_y, epochs=100, verbose=1, callbacks=[lr_scheduler])
+history = model.fit(train_X, train_y, epochs=100, verbose=1, callbacks=[early])
+# history = model.fit(train_X, train_y, epochs=100, verbose=1, callback=[lr_scheduler])
 
 print(model.evaluate(test_X, test_y))
-
-plt.figure(figsize=(10,7))
-plt.semilogx(lrs, history.history["loss"])
-plt.xlabel("Learning Rate")
-plt.ylabel("Loss")
-plt.title("Learning Rate vs Loss")
 
 pd.DataFrame(history.history).plot()
 plt.xlabel("epochs")
 plt.ylabel("accuracy")
 plt.title(model.name + " Loss Curves")
 plt.show()
+
+# plt.figure(figsize=(10,7))
+# plt.semilogx(lrs, history.history["loss"])
+# plt.xlabel("Learning Rate")
+# plt.ylabel("Loss")
+# plt.title("Learning Rate vs Loss")
+# plt.show()
 
 plot_decision_boundary(model, X, y)
