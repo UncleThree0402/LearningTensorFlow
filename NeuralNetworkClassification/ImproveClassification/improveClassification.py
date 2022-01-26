@@ -53,10 +53,13 @@ model.compile(loss=tf.keras.losses.BinaryCrossentropy(),
 lr_scheduler = tf.keras.callbacks.LearningRateScheduler(lambda epochs: 1e-4 * 10 ** (epochs / 20))
 early = tf.keras.callbacks.EarlyStopping(monitor="accuracy", patience=5)
 lrs = 1e-4 * 10 ** (tf.range(100) / 20)
-history = model.fit(train_X, train_y, epochs=100, verbose=1, callbacks=[early])
-# history = model.fit(train_X, train_y, epochs=100, verbose=1, callback=[lr_scheduler])
+history = model.fit(train_X, train_y, epochs=100, verbose=1)
+# history = model.fit(train_X, train_y, epochs=100, verbose=1, callbacks=[lr_scheduler])
 
-print(model.evaluate(test_X, test_y))
+losses , accuracy = model.evaluate(test_X, test_y)
+
+print(f"Model loss : {losses}")
+print(f"Model accuracy : {accuracy:%}")
 
 pd.DataFrame(history.history).plot()
 plt.xlabel("epochs")
