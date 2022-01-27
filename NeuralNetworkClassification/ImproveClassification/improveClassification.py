@@ -64,7 +64,7 @@ print(f"Model accuracy : {accuracy:%}")
 pd.DataFrame(history.history).plot()
 plt.xlabel("epochs")
 plt.ylabel("accuracy")
-plt.title(model.name + " Loss Curves")
+plt.title(model.name + " Accuracy Curves")
 plt.show()
 
 # plt.figure(figsize=(10,7))
