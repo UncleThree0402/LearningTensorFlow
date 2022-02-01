@@ -14,3 +14,4 @@ def view_random_image(target_dir, class_name):
     plt.axis("off")
     plt.show()
     print(img.shape)
+    return img
