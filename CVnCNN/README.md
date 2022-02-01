@@ -5,11 +5,11 @@ steak & pizza from [Food101](https://www.kaggle.com/kmader/food41)
 
 Steak:
 
-![Steak](https://github.com/UncleThree0402/LearningTensorFlow/blob/dev/CVnCNN/SmallFoodVision/Image/steak.png)
+![Steak](https://github.com/UncleThree0402/LearningTensorFlow/blob/dev/CVnCNN/Image/steak.png)
 
 Pizza:
 
-![Pizza](https://github.com/UncleThree0402/LearningTensorFlow/blob/dev/CVnCNN/SmallFoodVision/Image/pizza.png)
+![Pizza](https://github.com/UncleThree0402/LearningTensorFlow/blob/dev/CVnCNN/Image/pizza.png)
 
 ## Check import file
 ```python
@@ -81,7 +81,7 @@ history_1 = model_1.fit(train_data, epochs=5,
                         validation_steps=len(valid_data))
 ```
 
-![accuracy](https://github.com/UncleThree0402/LearningTensorFlow/blob/dev/CVnCNN/SmallFoodVision/Image/CNN.png)
+![accuracy](https://github.com/UncleThree0402/LearningTensorFlow/blob/dev/CVnCNN/Image/CNN.png)
 
 ## Non-CNN Model
 ```python
@@ -102,7 +102,7 @@ history_2 = model_2.fit(train_data, epochs=5,
                         validation_steps=len(valid_data))
 ```
 
-![Accuracy](https://github.com/UncleThree0402/LearningTensorFlow/blob/dev/CVnCNN/SmallFoodVision/Image/NCNN.png)
+![Accuracy](https://github.com/UncleThree0402/LearningTensorFlow/blob/dev/CVnCNN/Image/NCNN.png)
 
 ## Non-CNN Model with 25x more node inside layers
 ```python
@@ -123,4 +123,4 @@ history_3 = model_3.fit(train_data, epochs=5,
                         validation_steps=len(valid_data))
 ```
 
-![Accuracy](https://github.com/UncleThree0402/LearningTensorFlow/blob/dev/CVnCNN/SmallFoodVision/Image/NCNN25x.png)
+![Accuracy](https://github.com/UncleThree0402/LearningTensorFlow/blob/dev/CVnCNN/Image/NCNN25x.png)
