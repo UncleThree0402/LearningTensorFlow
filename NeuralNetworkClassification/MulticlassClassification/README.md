@@ -153,3 +153,4 @@ history_tweak = model_tweak.fit(train_data_nor, tf.one_hot(train_labels, depth=1
 
 ### Result of all model
 ![result](https://github.com/UncleThree0402/LearningTensorFlow/blob/dev/NeuralNetworkClassification/MulticlassClassification/Image/accuracy.png)
+![confusion](https://github.com/UncleThree0402/LearningTensorFlow/blob/dev/NeuralNetworkClassification/MulticlassClassification/Image/confusionmatrix.png)
