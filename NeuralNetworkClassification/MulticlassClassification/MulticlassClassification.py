@@ -6,6 +6,9 @@ from sklearn.model_selection import train_test_split
 from tensorflow.keras.datasets import fashion_mnist
 import random
 
+import PlotGraph as pg
+import PlotGraph.confusion_matrix
+
 (train_data, train_labels) , (test_data, test_labels) = fashion_mnist.load_data()
 
 # Check how the data look like
@@ -139,7 +142,9 @@ ax3.plot(pd.DataFrame(history_tweak.history))
 ax3.set_title("Tweaked Data")
 plt.show()
 
+# Predict
+
 y_prob = model_tweak.predict(test_data_nor)
+y_pred = y_prob.argmax(axis=1)
+PlotGraph.confusion_matrix.plot_confusion_matrix(y_true=test_labels, y_preds=y_pred, classes=image_classes, figsize=(15,15),text_size=10)
 
-
-print(y_prob[:5])
