@@ -9,7 +9,7 @@ Steak:
 
 Pizza:
 
-![Pizza](https://github.com/UncleThree0402/LearningTensorFlow/blob/dev/CVnCNN/Image/pizza.png)
+![Pizza](https://github.com/UncleThree0402/LearningTensorFlow/blob/dev/CVnCNN/Image/img.png)
 
 ## Check import file
 ```python
