@@ -147,4 +147,3 @@ plt.show()
 y_prob = model_tweak.predict(test_data_nor)
 y_pred = y_prob.argmax(axis=1)
 PlotGraph.confusion_matrix.plot_confusion_matrix(y_true=test_labels, y_preds=y_pred, classes=image_classes, figsize=(15,15),text_size=10)
-
