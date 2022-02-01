@@ -3,7 +3,7 @@ import pathlib
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-
+import matplotlib.image as mpimg
 import PlotGraph.confusion_matrix
 from PlotGraph import image
 import tensorflow as tf
@@ -180,7 +180,14 @@ pd.DataFrame(history_4.history).plot()
 plt.title("CNN with augmented data")
 plt.show()
 
+
+steak_pred = mpimg.imread("../Dataset/pizza_steak_pred/03-steak.jpeg")
+plt.imshow(steak_pred)
+plt.show()
+
 model_1.summary()
 model_2.summary()
 model_3.summary()
 model_4.summary()
+
+
