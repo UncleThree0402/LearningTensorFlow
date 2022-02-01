@@ -124,3 +124,11 @@ history_3 = model_3.fit(train_data, epochs=5,
 ```
 
 ![Accuracy](https://github.com/UncleThree0402/LearningTensorFlow/blob/dev/CVnCNN/Image/NCNN25x.png)
+
+## Model Parameter
+
+| Model             | Parameter | Valid Accuracy |
+|-------------------|-----------|----------------|
+| CNN               | 31,101| 86.4%          |
+| Non-CNN           | 602,141| 50.0%|
+| Non-CNN 25x nodes | 15,063,101|69.2%|
