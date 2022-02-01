@@ -52,6 +52,11 @@ plt.show()
 tf.random.set_seed(42)
 ```
 
+### Info
+Loss function : CategoricalCrossentropy (One_hot encoded) / SparesCategoricalCrossentropy (With out one_hot encoding)<br>
+Optimizer : Adam<br>
+Metrics : accuracy
+
 ### Model without normalization
 ```python
 model = tf.keras.Sequential([
