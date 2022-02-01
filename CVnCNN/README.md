@@ -180,14 +180,16 @@ history_4 = model_1.fit(train_data_augmented, epochs=10,
                         validation_data=valid_data,
                         validation_steps=len(valid_data))
 ```
+![CNNwAug](https://github.com/UncleThree0402/LearningTensorFlow/blob/dev/CVnCNN/Image/CNNwAug.png)
 
 ## Model Parameter
 
 | Model             | Parameter | Valid Accuracy |
 |-------------------|-----------|----------------|
 | CNN               | 31,101| 86.4%          |
-| Non-CNN           | 602,141| 50.0%|
-| Non-CNN 25x nodes | 15,063,101|69.2%|
+| Non-CNN           | 602,141| 50.0%          |
+| Non-CNN 25x nodes | 15,063,101| 69.2%          |
+| CNN model with augmented data and improve structure      | 82,593| 88.0%          |
 
 ## Note
 * Make a base model first
