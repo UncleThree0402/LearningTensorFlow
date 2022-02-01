@@ -27,7 +27,7 @@ class_names = np.array(sorted([item.name for item in data_dir.glob("*")]))
 print(class_names)
 
 # Get random image
-img = image.view_random_image("../Dataset/pizza_steak/train/", "steak")
+img = image.view_random_image("../Dataset/pizza_steak/train/", "pizza")
 
 # Create a tensor
 print(tf.constant(img))
