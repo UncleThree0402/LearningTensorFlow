@@ -6,11 +6,19 @@ steak & pizza from [Food101](https://www.kaggle.com/kmader/food41)
 
 Steak:
 
+<<<<<<< HEAD:CVnCNN/Binary/README.md
 ![Steak](https://github.com/UncleThree0402/LearningTensorFlow/blob/dev/CVnCNN/Image/steak.png)
 
 Pizza:
 
 ![Pizza](https://github.com/UncleThree0402/LearningTensorFlow/blob/dev/CVnCNN/Image/img.png)
+=======
+![Steak](https://github.com/UncleThree0402/LearningTensorFlow/blob/dev/CVnCNN/Binary/Image/steak.png)
+
+Pizza:
+
+![Pizza](https://github.com/UncleThree0402/LearningTensorFlow/blob/dev/CVnCNN/Binary/Image/pizza.png)
+>>>>>>> master:CVnCNN/README.md
 
 ## Check import file
 
@@ -105,7 +113,11 @@ history_1 = model_1.fit(train_data, epochs=5,
                         validation_steps=len(valid_data))
 ```
 
+<<<<<<< HEAD:CVnCNN/Binary/README.md
 ![accuracy](https://github.com/UncleThree0402/LearningTensorFlow/blob/dev/CVnCNN/Image/CNN.png)
+=======
+![accuracy](https://github.com/UncleThree0402/LearningTensorFlow/blob/dev/CVnCNN/Binary/Image/CNN.png)
+>>>>>>> master:CVnCNN/README.md
 
 ## Non-CNN Model
 
@@ -127,7 +139,11 @@ history_2 = model_2.fit(train_data, epochs=5,
                         validation_steps=len(valid_data))
 ```
 
+<<<<<<< HEAD:CVnCNN/Binary/README.md
 ![Accuracy](https://github.com/UncleThree0402/LearningTensorFlow/blob/dev/CVnCNN/Image/NCNN.png)
+=======
+![Accuracy](https://github.com/UncleThree0402/LearningTensorFlow/blob/dev/CVnCNN/Binary/Image/NCNN.png)
+>>>>>>> master:CVnCNN/README.md
 
 ## Non-CNN Model with 25x more node inside layers
 
@@ -149,7 +165,11 @@ history_3 = model_3.fit(train_data, epochs=5,
                         validation_steps=len(valid_data))
 ```
 
+<<<<<<< HEAD:CVnCNN/Binary/README.md
 ![Accuracy](https://github.com/UncleThree0402/LearningTensorFlow/blob/dev/CVnCNN/Image/NCNN25x.png)
+=======
+![Accuracy](https://github.com/UncleThree0402/LearningTensorFlow/blob/dev/CVnCNN/Binary/Image/NCNN25x.png)
+>>>>>>> master:CVnCNN/README.md
 
 ## CNN model with augmented data and improve structure
 ```python
@@ -180,7 +200,11 @@ history_4 = model_1.fit(train_data_augmented, epochs=10,
                         validation_data=valid_data,
                         validation_steps=len(valid_data))
 ```
+<<<<<<< HEAD:CVnCNN/Binary/README.md
 ![CNNwAug](https://github.com/UncleThree0402/LearningTensorFlow/blob/dev/CVnCNN/Image/CNNwAug.png)
+=======
+![CNNwAug](https://github.com/UncleThree0402/LearningTensorFlow/blob/dev/CVnCNN/Binary/Image/CNNwAug.png)
+>>>>>>> master:CVnCNN/README.md
 
 ## Model Parameter
 
