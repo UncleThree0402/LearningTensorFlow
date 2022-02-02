@@ -6,11 +6,11 @@ steak & pizza from [Food101](https://www.kaggle.com/kmader/food41)
 
 Steak:
 
-![Steak](https://github.com/UncleThree0402/LearningTensorFlow/blob/dev/CVnCNN/Image/steak.png)
+![Steak](https://github.com/UncleThree0402/LearningTensorFlow/blob/dev/CVnCNN/Binary/Image/steak.png)
 
 Pizza:
 
-![Pizza](https://github.com/UncleThree0402/LearningTensorFlow/blob/dev/CVnCNN/Image/img.png)
+![Pizza](https://github.com/UncleThree0402/LearningTensorFlow/blob/dev/CVnCNN/Binary/Image/pizza.png)
 
 ## Check import file
 
@@ -105,7 +105,7 @@ history_1 = model_1.fit(train_data, epochs=5,
                         validation_steps=len(valid_data))
 ```
 
-![accuracy](https://github.com/UncleThree0402/LearningTensorFlow/blob/dev/CVnCNN/Image/CNN.png)
+![accuracy](https://github.com/UncleThree0402/LearningTensorFlow/blob/dev/CVnCNN/Binary/Image/CNN.png)
 
 ## Non-CNN Model
 
@@ -127,7 +127,7 @@ history_2 = model_2.fit(train_data, epochs=5,
                         validation_steps=len(valid_data))
 ```
 
-![Accuracy](https://github.com/UncleThree0402/LearningTensorFlow/blob/dev/CVnCNN/Image/NCNN.png)
+![Accuracy](https://github.com/UncleThree0402/LearningTensorFlow/blob/dev/CVnCNN/Binary/Image/NCNN.png)
 
 ## Non-CNN Model with 25x more node inside layers
 
@@ -149,7 +149,7 @@ history_3 = model_3.fit(train_data, epochs=5,
                         validation_steps=len(valid_data))
 ```
 
-![Accuracy](https://github.com/UncleThree0402/LearningTensorFlow/blob/dev/CVnCNN/Image/NCNN25x.png)
+![Accuracy](https://github.com/UncleThree0402/LearningTensorFlow/blob/dev/CVnCNN/Binary/Image/NCNN25x.png)
 
 ## CNN model with augmented data and improve structure
 ```python
@@ -180,7 +180,7 @@ history_4 = model_1.fit(train_data_augmented, epochs=10,
                         validation_data=valid_data,
                         validation_steps=len(valid_data))
 ```
-![CNNwAug](https://github.com/UncleThree0402/LearningTensorFlow/blob/dev/CVnCNN/Image/CNNwAug.png)
+![CNNwAug](https://github.com/UncleThree0402/LearningTensorFlow/blob/dev/CVnCNN/Binary/Image/CNNwAug.png)
 
 ## Model Parameter
 
