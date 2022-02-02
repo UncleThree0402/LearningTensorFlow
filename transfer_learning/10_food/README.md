@@ -4,6 +4,10 @@
 
 Foods from [Food101](https://www.kaggle.com/kmader/food41)
 
+## TensorBoard
+
+[Experiment](https://tensorboard.dev/experiment/ARulwXb9Rj6bqE5XcmLqaw/#scalars&run=efficientnet_b0%5C20220203-050249%5Ctrain)
+
 ## Feature Extractor Model
 
 * [resnet_v2_50](https://tfhub.dev/google/imagenet/resnet_v2_50/feature_vector/5)
