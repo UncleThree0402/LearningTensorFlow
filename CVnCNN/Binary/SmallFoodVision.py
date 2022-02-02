@@ -10,28 +10,28 @@ import tensorflow as tf
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 
 # Check File
-for dirpath, dirnames, filenames in os.walk("../Dataset/pizza_steak"):
+for dirpath, dirnames, filenames in os.walk("../../Dataset/pizza_steak"):
     print(f"There are {len(dirnames)}, {len(filenames)} files in {dirpath}")
 
-steak_image_train = len(os.listdir("../Dataset/pizza_steak/train/steak"))
-steak_image_test = len(os.listdir("../Dataset/pizza_steak/test/steak"))
-pizze_image_train = len(os.listdir("../Dataset/pizza_steak/train/pizza"))
-pizze_image_test = len(os.listdir("../Dataset/pizza_steak/test/pizza"))
+steak_image_train = len(os.listdir("../../Dataset/pizza_steak/train/steak"))
+steak_image_test = len(os.listdir("../../Dataset/pizza_steak/test/steak"))
+pizze_image_train = len(os.listdir("../../Dataset/pizza_steak/train/pizza"))
+pizze_image_test = len(os.listdir("../../Dataset/pizza_steak/test/pizza"))
 
 print(
     f"Steak have {steak_image_train} train images and {steak_image_test} test images, Pizza have {pizze_image_train} train images and {pizze_image_test} test images")
 
 # Get classes names
-data_dir = pathlib.Path("../Dataset/pizza_steak/train/")
+data_dir = pathlib.Path("../../Dataset/pizza_steak/train/")
 class_names = np.array(sorted([item.name for item in data_dir.glob("*")]))
 print(class_names)
 
 # Get random image
-img = image.view_random_image("../Dataset/pizza_steak/train/", "pizza")
+img = image.view_random_image("../../Dataset/pizza_steak/train/", "pizza")
 
 # Visualize Data
-image.view_random_image("../Dataset/pizza_steak/train/", "pizza")
-image.view_random_image("../Dataset/pizza_steak/train/", "steak")
+image.view_random_image("../../Dataset/pizza_steak/train/", "pizza")
+image.view_random_image("../../Dataset/pizza_steak/train/", "steak")
 
 # Create a tensor
 print(tf.constant(img))
@@ -46,8 +46,8 @@ train_data_gen = ImageDataGenerator(rescale=1. / 255)
 valid_data_gen = ImageDataGenerator(rescale=1. / 255)
 
 ## Path
-train_dir = "../Dataset/pizza_steak/train/"
-test_dir = "../Dataset/pizza_steak/test/"
+train_dir = "../../Dataset/pizza_steak/train/"
+test_dir = "../../Dataset/pizza_steak/test/"
 
 ## Create batches
 train_data = train_data_gen.flow_from_directory(directory=train_dir,
@@ -171,7 +171,7 @@ model_4.compile(loss="binary_crossentropy",
                 optimizer=tf.keras.optimizers.Adam(),
                 metrics=["accuracy"])
 
-history_4 = model_1.fit(train_data_augmented, epochs=10,
+history_4 = model_1.fit(train_data_augmented, epochs=5,
                         steps_per_epoch=len(train_data_augmented),
                         validation_data=valid_data,
                         validation_steps=len(valid_data))
@@ -180,13 +180,15 @@ pd.DataFrame(history_4.history).plot()
 plt.title("CNN with augmented data")
 plt.show()
 
-steak = image.load_and_pred_image("../Dataset/pizza_steak_pred/03-steak.jpeg")
-pred = model_4.predict(tf.expand_dims(steak, axis=0))
-print(class_names[int(tf.round(pred))])
+steak = image.load_and_pred_image("../../Dataset/pizza_steak_pred/03-steak.jpeg")
+steak_pred = model_4.predict(tf.expand_dims(steak, axis=0))
+print(steak_pred)
+print(class_names[int(tf.round(steak_pred))])
 
-pizza = image.load_and_pred_image("../Dataset/pizza_steak_pred/03-pizza-dad.jpeg")
-pred = model_4.predict(tf.expand_dims(pizza, axis=0))
-print(class_names[int(tf.round(pred))])
+pizza = image.load_and_pred_image("../../Dataset/pizza_steak_pred/03-pizza-dad.jpeg")
+pizza_pred = model_4.predict(tf.expand_dims(pizza, axis=0))
+print(pizza_pred)
+print(class_names[int(tf.round(pizza_pred))])
 
 model_1.summary()
 model_2.summary()
