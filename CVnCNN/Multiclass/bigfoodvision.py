@@ -63,5 +63,7 @@ history_1 = model_1.fit(train_date,
                         validation_data=valid_data,
                         validation_steps=len(valid_data))
 
+print(f"\n {model_1.evaluate(valid_data)}")
+
 pd.DataFrame(history_1.history).plot()
-plt.plot()
+plt.show()
