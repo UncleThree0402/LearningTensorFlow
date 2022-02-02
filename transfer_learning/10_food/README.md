@@ -60,8 +60,8 @@ history_1 = model_1.fit(train_data,
                                                                          experiment_name="resnet_v2_50")])
 ```
 
-![Loss]()
-![Accuracy]()
+![Loss](https://github.com/UncleThree0402/LearningTensorFlow/blob/master/transfer_learning/10_food/Image/resnet_loss.png)
+![Accuracy](https://github.com/UncleThree0402/LearningTensorFlow/blob/master/transfer_learning/10_food/Image/resnet_accuracy.png)
 
 ### Efficientnet
 
@@ -82,11 +82,10 @@ history_2 = model_2.fit(train_data,
                         validation_steps=len(test_data),
                         callbacks=[callbacks.create_tensorboard_callback(dirname="tensor_hub",
                                                                          experiment_name="efficientnet_b0")])
-experiment_name = "resnet_v2_50")])
 ```
 
-![Loss]()
-![Accuracy]()
+![Loss](https://github.com/UncleThree0402/LearningTensorFlow/blob/master/transfer_learning/10_food/Image/efn_loss.png)
+![Accuracy](https://github.com/UncleThree0402/LearningTensorFlow/blob/master/transfer_learning/10_food/Image/efn_accuracy.png)
 
 ## Difference
 | Model        | Parameter  | Accuracy |
