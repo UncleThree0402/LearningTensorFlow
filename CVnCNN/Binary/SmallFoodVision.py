@@ -5,7 +5,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 import PlotGraph.confusion_matrix
-from PlotGraph import image
+from tensor_tool import image_data
 import tensorflow as tf
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 
@@ -180,12 +180,12 @@ pd.DataFrame(history_4.history).plot()
 plt.title("CNN with augmented data")
 plt.show()
 
-steak = image.load_and_pred_image("../../Dataset/pizza_steak_pred/03-steak.jpeg")
+steak = image_data.load_and_pred_image("../../Dataset/pizza_steak_pred/03-steak.jpeg")
 steak_pred = model_4.predict(tf.expand_dims(steak, axis=0))
 print(steak_pred)
 print(class_names[int(tf.round(steak_pred))])
 
-pizza = image.load_and_pred_image("../../Dataset/pizza_steak_pred/03-pizza-dad.jpeg")
+pizza = image_data.load_and_pred_image("../../Dataset/pizza_steak_pred/03-pizza-dad.jpeg")
 pizza_pred = model_4.predict(tf.expand_dims(pizza, axis=0))
 print(pizza_pred)
 print(class_names[int(tf.round(pizza_pred))])
