@@ -142,14 +142,37 @@ history_3 = model_3.fit(train_date_augmented,
 ### Self Design CNN (With data augmentation)
 
 ```python
+model_4 = tf.keras.Sequential([
+    tf.keras.layers.Conv2D(5, 5, activation="relu", input_shape=(224, 224, 3)),
+    tf.keras.layers.MaxPool2D(),
+    tf.keras.layers.Conv2D(10, 5, activation="relu"),
+    tf.keras.layers.MaxPool2D(),
+    tf.keras.layers.Conv2D(15, 5, activation="relu"),
+    tf.keras.layers.MaxPool2D(),
+    tf.keras.layers.Conv2D(20, 5, activation="relu"),
+    tf.keras.layers.MaxPool2D(),
+    tf.keras.layers.Flatten(),
+    tf.keras.layers.Dense(100, activation="relu"),
+    tf.keras.layers.Dense(50, activation="relu"),
+    tf.keras.layers.Dense(10, activation="softmax")
+])
 
+model_4.compile(loss=tf.keras.losses.CategoricalCrossentropy(),
+                optimizer=tf.keras.optimizers.Adam(),
+                metrics=["accuracy"])
+
+history_4 = model_4.fit(train_date_augmented,
+                        epochs=10,
+                        steps_per_epoch=len(train_date_augmented),
+                        validation_data=valid_data,
+                        validation_steps=len(valid_data))
 ```
 
 ### Difference
 
 | Model                                                 | Parameter | Accuracy |
-|-------------------------------------------------------|-----------|---------|
-| Tiny VGG(Without data augmentation)                   |           | 26.00%  |
-| Tiny VGG(With data augmentation)                      |           | 39.80%  |
-| Tiny VGG(With data augmentation & 10 epochs)          |           | 43.36%  |
-| Self Design CNN (With data augmentation & 10 epochs)  |           | 43.1%   |
+|-------------------------------------------------------|-----------|----------|
+| Tiny VGG(Without data augmentation)                   | 283,920   | 26.00%   |
+| Tiny VGG(With data augmentation)                      | 283,920   | 39.80%   |
+| Tiny VGG(With data augmentation & 10 epochs)          | 283,920   | 43.36%   |
+| Self Design CNN (With data augmentation & 10 epochs)  | 218,585   | 38.48%   |
