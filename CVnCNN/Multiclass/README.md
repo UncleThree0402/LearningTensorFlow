@@ -88,6 +88,7 @@ history_1 = model_1.fit(train_date,
                         validation_data=valid_data,
                         validation_steps=len(valid_data))
 ```
+![Accuracy](https://github.com/UncleThree0402/LearningTensorFlow/blob/master/CVnCNN/Multiclass/Image/tiny_vgg_not_augmented.png)
 
 ### Tiny VGG (With data augmentation)
 
@@ -113,6 +114,7 @@ history_2 = model_2.fit(train_date_augmented,
                         validation_data=valid_data,
                         validation_steps=len(valid_data))
 ```
+![Accuracy](https://github.com/UncleThree0402/LearningTensorFlow/blob/master/CVnCNN/Multiclass/Image/tiny_vgg_augmented.png)
 
 ### Tiny VGG (With data augmentation & 10 epochs)
 
@@ -138,6 +140,7 @@ history_3 = model_3.fit(train_date_augmented,
                         validation_data=valid_data,
                         validation_steps=len(valid_data))
 ```
+![Accuracy](https://github.com/UncleThree0402/LearningTensorFlow/blob/master/CVnCNN/Multiclass/Image/tiny_vgg_augmented_10epochs.png)
 
 ### Self Design CNN (With data augmentation)
 
@@ -167,6 +170,7 @@ history_4 = model_4.fit(train_date_augmented,
                         validation_data=valid_data,
                         validation_steps=len(valid_data))
 ```
+![Accuracy](https://github.com/UncleThree0402/LearningTensorFlow/blob/master/CVnCNN/Multiclass/Image/self_cnn.png)
 
 ### Difference
 
