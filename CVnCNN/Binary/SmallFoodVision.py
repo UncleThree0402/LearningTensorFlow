@@ -180,10 +180,13 @@ pd.DataFrame(history_4.history).plot()
 plt.title("CNN with augmented data")
 plt.show()
 
+steak = image.load_and_pred_image("../Dataset/pizza_steak_pred/03-steak.jpeg")
+pred = model_4.predict(tf.expand_dims(steak, axis=0))
+print(class_names[int(tf.round(pred))])
 
-steak_pred = mpimg.imread("../Dataset/pizza_steak_pred/03-steak.jpeg")
-plt.imshow(steak_pred)
-plt.show()
+pizza = image.load_and_pred_image("../Dataset/pizza_steak_pred/03-pizza-dad.jpeg")
+pred = model_4.predict(tf.expand_dims(pizza, axis=0))
+print(class_names[int(tf.round(pred))])
 
 model_1.summary()
 model_2.summary()
