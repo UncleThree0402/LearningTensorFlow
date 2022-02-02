@@ -4,9 +4,9 @@ import tensorflow as tf
 import tensorflow_hub as hub
 from tensor_tool import callbacks
 
-file.check_file("../../Dataset/10_food_classes_10_percent")
+file.check_file("../Dataset/10_food_classes_10_percent")
 
-train_data, test_data = image_data.get_data("../../Dataset/10_food_classes_10_percent/train",
+train_data, test_data = image_data.get_data("../Dataset/10_food_classes_10_percent/train",
                                             "../../Dataset/10_food_classes_10_percent/test",
                                             class_mode="categorical")
 
