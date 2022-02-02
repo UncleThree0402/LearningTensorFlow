@@ -3,12 +3,13 @@ from sklearn.metrics import confusion_matrix
 import matplotlib.pyplot as plt
 import numpy as np
 
-def plot_confusion_matrix(y_true, y_preds, classes=None, figsize=(10,10), text_size=20):
+
+def plot_confusion_matrix(y_true, y_preds, classes=None, figsize=(10, 10), text_size=20):
     # Confusion Matrix
     cm = confusion_matrix(y_true, y_preds)
 
     # Get Normalize
-    cm_normalize = cm.astype("float") / cm.sum(axis=1) [: , np.newaxis]
+    cm_normalize = cm.astype("float") / cm.sum(axis=1)[:, np.newaxis]
 
     # Classes
     n_classes = cm.shape[0]
@@ -42,8 +43,8 @@ def plot_confusion_matrix(y_true, y_preds, classes=None, figsize=(10,10), text_s
     threshold = (cm.max() + cm.min()) / 2.
 
     for i, j in itertools.product(range(cm.shape[0]), range(cm.shape[1])):
-        plt.text(j, i, f"{cm[i, j]} ({cm_normalize[i , j] * 100:.1f}%)",
+        plt.text(j, i, f"{cm[i, j]} ({cm_normalize[i, j] * 100:.1f}%)",
                  horizontalalignment="center",
-                 color="white" if cm[i , j] > threshold else "black",
+                 color="white" if cm[i, j] > threshold else "black",
                  size=text_size)
     plt.show()

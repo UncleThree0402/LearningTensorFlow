@@ -17,10 +17,3 @@ def view_random_image(target_dir, class_name):
     print(img.shape)
     return img
 
-
-def load_and_pred_image(filename, img_shape=224):
-    img = tf.io.read_file(filename)
-    img = tf.image.decode_image(img)
-    img = tf.image.resize(img, size=[img_shape, img_shape])
-    img = img / 255.
-    return img
