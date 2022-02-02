@@ -1,18 +1,13 @@
 import tensor_tool.file
-<<<<<<< HEAD
-=======
 import tensorflow as tf
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
->>>>>>> master
 
 tensor_tool.file.check_file("../../Dataset/10_food_classes_all_data")
 tensor_tool.file.get_classes_name("../../Dataset/10_food_classes_all_data/train")
 
-<<<<<<< HEAD
-=======
 # Preprocess
 tf.random.set_seed(42)
 
@@ -72,4 +67,3 @@ print(f"\n {model_1.evaluate(valid_data)}")
 
 pd.DataFrame(history_1.history).plot()
 plt.show()
->>>>>>> master
