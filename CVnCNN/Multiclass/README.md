@@ -19,7 +19,7 @@ Use [`get_classes_name`](https://github.com/UncleThree0402/LearningTensorFlow/bl
 from [`tensor_tool`](https://github.com/UncleThree0402/LearningTensorFlow/tree/master/tensor_tool)
 
 ```python
-tensor_tool.file.get_classes_name("../../Dataset/10_food_classes_all_data/train")
+tensor_tool.image_data.get_classes_name("../../Dataset/10_food_classes_all_data/train")
 ```
 
 ## Preprocess Data

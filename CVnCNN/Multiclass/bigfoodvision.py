@@ -1,4 +1,5 @@
 import tensor_tool.file
+import tensor_tool.image_data
 import tensorflow as tf
 import numpy as np
 import pandas as pd
@@ -6,7 +7,7 @@ import matplotlib.pyplot as plt
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 
 tensor_tool.file.check_file("../../Dataset/10_food_classes_all_data")
-tensor_tool.file.get_classes_name("../../Dataset/10_food_classes_all_data/train")
+tensor_tool.image_data.get_classes_name("../../Dataset/10_food_classes_all_data/train")
 
 # Preprocess
 tf.random.set_seed(42)
