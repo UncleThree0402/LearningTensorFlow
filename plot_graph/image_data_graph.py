@@ -51,7 +51,7 @@ def plot_confusion_matrix(y_true, y_preds, classes=None, figsize=(10, 10), text_
                  horizontalalignment="center",
                  color="white" if cm[i, j] > threshold else "black",
                  size=text_size)
-    plt.savefig("confusion_matrix.png")
+    plt.savefig("./Image/confusion_matrix.png")
 
 
 def plot_classification_report(y_true, y_pred, class_names, fig_size=(12, 25)):
@@ -84,7 +84,7 @@ def plot_classification_report(y_true, y_pred, class_names, fig_size=(12, 25)):
     plt.title("f1-score of model")
     plt.xlabel("f1-score")
     plt.ylabel("class_name")
-    plt.savefig("f1-score.png")
+    plt.savefig("./Image/f1-score.png")
 
     # Precision
     plt.figure(figsize=fig_size)
@@ -93,7 +93,7 @@ def plot_classification_report(y_true, y_pred, class_names, fig_size=(12, 25)):
     plt.title("precision of model")
     plt.xlabel("precision")
     plt.ylabel("class_name")
-    plt.savefig("precision.png")
+    plt.savefig("./Image/precision.png")
 
     # Recall
     plt.figure(figsize=fig_size)
@@ -102,4 +102,4 @@ def plot_classification_report(y_true, y_pred, class_names, fig_size=(12, 25)):
     plt.title("recall of model")
     plt.xlabel("recall")
     plt.ylabel("class_name")
-    plt.savefig("recall.png")
+    plt.savefig("./Image/recall.png")
