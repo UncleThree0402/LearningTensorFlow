@@ -4,7 +4,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
-import plot_graph.confusion_matrix
+from plot_graph import image
 from tensor_tool import image_data
 import tensorflow as tf
 from tensorflow.keras.preprocessing.image import ImageDataGenerator

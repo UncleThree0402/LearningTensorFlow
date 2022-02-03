@@ -7,9 +7,9 @@ from tensorflow.keras.datasets import fashion_mnist
 import random
 
 import plot_graph as pg
-import plot_graph.confusion_matrix
+import plot_graph.image_data_graph
 
-(train_data, train_labels) , (test_data, test_labels) = fashion_mnist.load_data()
+(train_data, train_labels), (test_data, test_labels) = fashion_mnist.load_data()
 
 # Check how the data look like
 # print(f"Train Data : \n {train_data[0]} \n")
@@ -34,7 +34,7 @@ image_classes = ["T-shirt/top", "Trouser", "Pullover", "Dress", "Coat", "Sandal"
 
 
 # Plot random image
-plt.figure(figsize=(4,4))
+plt.figure(figsize=(4, 4))
 for i in range(4):
     ax = plt.subplot(2, 2, i + 1)
     random_index = random.choice(range(len(train_data)))
@@ -47,17 +47,17 @@ tf.random.set_seed(42)
 # Model
 model = tf.keras.Sequential([
     tf.keras.layers.Flatten(input_shape=train_data[0].shape),
-    tf.keras.layers.Dense(4,activation="relu"),
-    tf.keras.layers.Dense(4,activation="relu"),
-    tf.keras.layers.Dense(10,activation="softmax"),
+    tf.keras.layers.Dense(4, activation="relu"),
+    tf.keras.layers.Dense(4, activation="relu"),
+    tf.keras.layers.Dense(10, activation="softmax"),
 ])
 
 model.compile(loss=tf.keras.losses.CategoricalCrossentropy(),
               optimizer=tf.keras.optimizers.Adam(),
               metrics=["accuracy"])
 
-history = model.fit(train_data, tf.one_hot(train_labels, depth=10),epochs=10,
-          validation_data=(test_data, tf.one_hot(test_labels, depth=10)))
+history = model.fit(train_data, tf.one_hot(train_labels, depth=10), epochs=10,
+                    validation_data=(test_data, tf.one_hot(test_labels, depth=10)))
 
 # Find min & max
 print(train_data.min(), train_data.max())
@@ -97,16 +97,16 @@ model_lr = tf.keras.Sequential([
 ])
 
 model_lr.compile(loss=tf.keras.losses.CategoricalCrossentropy(),
-                   optimizer=tf.keras.optimizers.Adam(),
-                   metrics=["accuracy"])
+                 optimizer=tf.keras.optimizers.Adam(),
+                 metrics=["accuracy"])
 
 history_lr = model_lr.fit(train_data_nor, tf.one_hot(train_labels, depth=10), epochs=100,
-                              validation_data=(test_data_nor, tf.one_hot(test_labels, depth=10)),
+                          validation_data=(test_data_nor, tf.one_hot(test_labels, depth=10)),
                           callbacks=[lr_scheduler])
 
 lrs = 1e-4 * 10 ** (tf.range(100) / 20)
 
-plt.figure(figsize=(10,7))
+plt.figure(figsize=(10, 7))
 plt.semilogx(lrs, history_lr.history["loss"])
 plt.xlabel("Learning Rate")
 plt.ylabel("Loss")
@@ -130,14 +130,14 @@ history_tweak = model_tweak.fit(train_data_nor, tf.one_hot(train_labels, depth=1
                                 epochs=20,
                                 validation_data=(test_data_nor, tf.one_hot(test_labels, depth=10)))
 
-plt.figure(figsize=(10,10))
-ax1 = plt.subplot(2,2,1)
+plt.figure(figsize=(10, 10))
+ax1 = plt.subplot(2, 2, 1)
 ax1.plot(pd.DataFrame(history.history))
 ax1.set_title("Non-normalize data")
-ax2 = plt.subplot(2,2,2)
+ax2 = plt.subplot(2, 2, 2)
 ax2.plot(pd.DataFrame(history_norm.history))
 ax2.set_title("Normalize data")
-ax3 = plt.subplot(2,2,3)
+ax3 = plt.subplot(2, 2, 3)
 ax3.plot(pd.DataFrame(history_tweak.history))
 ax3.set_title("Tweaked Data")
 plt.show()
@@ -146,4 +146,5 @@ plt.show()
 
 y_prob = model_tweak.predict(test_data_nor)
 y_pred = y_prob.argmax(axis=1)
-plot_graph.confusion_matrix.plot_confusion_matrix(y_true=test_labels, y_preds=y_pred, classes=image_classes, figsize=(15, 15), text_size=10)
+plot_graph.image_data_graph.plot_confusion_matrix(y_true=test_labels, y_preds=y_pred, classes=image_classes,
+                                                  figsize=(15, 15), text_size=10)
