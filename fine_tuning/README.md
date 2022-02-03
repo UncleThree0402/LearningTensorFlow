@@ -196,11 +196,12 @@ history_4 = model_2.fit(train_data_all,
 ![Accuracy]()
 
 ## Different
+**5 epochs**
 
-| Model    | Info                                          | Dataset       | Lost | Accuracy |
-|----------|-----------------------------------------------|---------------|-----|----------|
-| BaseLine | EfficientNetB0 without tuning                 | 10% 10_foods  |||
-| model_1  | EfficientNetB0 without tuning                 | 1% 10_foods   |||
-| model_2  | EfficientNetB0 without tuning                 | 10% 10_foods  |||
-| model_3  | EfficientNetB0 with tuning (last 10 layers)   | 10% 10_foods  |||
-| model_4  | EfficientNetB0 with tuning (last 10 layers)   | 100% 10_foods |||
+| Model    | Info                                        | Dataset       | Lost   | Accuracy |
+|----------|---------------------------------------------|---------------|--------|----------|
+| BaseLine | EfficientNetB0 without tuning               | 10% 10_foods  | 0.6294 | 83.16%   |
+| model_1  | EfficientNetB0 without tuning               | 1% 10_foods   | 1.8151 | 47.96%   |
+| model_2  | EfficientNetB0 without tuning               | 10% 10_foods  | 0.6976 | 81.08%   |
+| model_3  | EfficientNetB0 with tuning (last 10 layers) | 10% 10_foods  | 0.4956 | 83.08%   |
+| model_4  | EfficientNetB0 with tuning (last 10 layers) | 100% 10_foods | 0.3342 | 89.12%   |
