@@ -9,6 +9,9 @@
 
 Foods from [Food101](https://www.kaggle.com/kmader/food41)
 
+## TensorBoard
+[link](https://tensorboard.dev/experiment/NLEXXVynQl6QYdswIbWPIQ/)
+
 ## Check File
 
 ```python
