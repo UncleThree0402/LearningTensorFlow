@@ -5,6 +5,7 @@
 ## Tensor
 
 ## Check file & preprocess
+
 ```python
 file.check_file("../Dataset/101_food_classes_10_percent")
 
@@ -12,6 +13,7 @@ train_data_10, test_data_10 = image_data.get_dataset("../Dataset/101_food_classe
                                                      "../Dataset/101_food_classes_10_percent/test",
                                                      class_mode="categorical")
 ```
+
 > [`file`](https://github.com/UncleThree0402/LearningTensorFlow/blob/master/tensor_tool/file.py), [`image_data`](https://github.com/UncleThree0402/LearningTensorFlow/blob/master/tensor_tool/image_data.py)
 
 ## Model
@@ -19,6 +21,7 @@ train_data_10, test_data_10 = image_data.get_dataset("../Dataset/101_food_classe
 > Functional Api used at this case
 
 ### BaseLine
+
 ```python
 base_model = tf.keras.applications.EfficientNetB0(include_top=False)
 base_model.trainable = False
@@ -45,10 +48,12 @@ history_base = model_0.fit(train_data_10,
                            callbacks=[callbacks.create_tensorboard_callback("food_101", "BaseLine"),
                                       callbacks.create_model_checkpoint("baseline_checkpoint")])
 ```
-![Loss]()
-![Accuracy]()
+
+![Loss](https://github.com/UncleThree0402/LearningTensorFlow/blob/master/scaling_up/Image/0_loss.png)
+![Accuracy](https://github.com/UncleThree0402/LearningTensorFlow/blob/master/scaling_up/Image/0_ac.png)
 
 ### Model_1
+
 ```python
 model_0.load_weights("baseline_checkpoint/checkpoint.ckpt")
 
@@ -72,10 +77,12 @@ history_1 = model_0.fit(train_data_10,
                         callbacks=[callbacks.create_tensorboard_callback("food_101", "model_1"),
                                    callbacks.create_model_checkpoint("model_1_checkpoint")])
 ```
-![Loss]()
-![Accuracy]()
+
+![Loss](https://github.com/UncleThree0402/LearningTensorFlow/blob/master/scaling_up/Image/1_loss.png)
+![Accuracy](https://github.com/UncleThree0402/LearningTensorFlow/blob/master/scaling_up/Image/1_ac.png)
 
 ### Downloaded Model
+
 ```python
 downloaded_model = tf.keras.models.load_model("./06_101_food_class_10_percent_saved_big_dog_model")
 result_downloaded = downloaded_model.evaluate(test_data_10)
@@ -84,13 +91,29 @@ result_downloaded = downloaded_model.evaluate(test_data_10)
 ## Performance
 
 ### Confusion Matrix
-![confusion_matrix]()
+
+![confusion_matrix](https://github.com/UncleThree0402/LearningTensorFlow/blob/master/scaling_up/Image/confusion_matrix.png)
+
 ### F1-score
-![f1-score]()
+
+![f1-score](https://github.com/UncleThree0402/LearningTensorFlow/blob/master/scaling_up/Image/f1-score.png)
+
 ### Precision
-![precision]()
+
+![precision](https://github.com/UncleThree0402/LearningTensorFlow/blob/master/scaling_up/Image/precision.png)
+
 ### Recall
-![recall]()
+
+![recall](https://github.com/UncleThree0402/LearningTensorFlow/blob/master/scaling_up/Image/recall.png)
 
 ### Top 9 wrong prediction
-![top9]()
+
+![top9](https://github.com/UncleThree0402/LearningTensorFlow/blob/master/scaling_up/Image/top_wrong.png)
+
+### Random Predict
+
+![random](https://github.com/UncleThree0402/LearningTensorFlow/blob/master/scaling_up/Image/random_pred.png)
+
+### Custom data
+
+![custom](https://github.com/UncleThree0402/LearningTensorFlow/blob/master/scaling_up/Image/cu_pred.png)
