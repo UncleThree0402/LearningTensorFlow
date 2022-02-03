@@ -1,7 +1,7 @@
 # Fine tuning
 
 ## How
-* unfroze some of transferred model
+* unfroze some layers of transferred model
 * lower learning rate
 * Add dataset
 
