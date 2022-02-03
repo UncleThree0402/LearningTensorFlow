@@ -12,6 +12,15 @@ Foods from [Food101](https://www.kaggle.com/kmader/food41)
 ## TensorBoard
 [link](https://tensorboard.dev/experiment/NLEXXVynQl6QYdswIbWPIQ/)
 
+## Experiment
+| Model    | Data | Process      | Special                             |
+|----------|------|--------------|-------------------------------------|
+| baseline | 10%  | None         | Feature Extractor all layers frozen |
+| model_1  | 1%   | Augmentation | Feature Extractor all layers frozen |
+| model_2  | 10%  | Augmentation | Feature Extractor all layers frozen |
+| model_3  | 10%  | Augmentation | Unfroze top 10 layers               |
+| model_4  | 100% | Augmentation | Unfroze top 10 layers               |
+
 ## Check File
 
 ```python
