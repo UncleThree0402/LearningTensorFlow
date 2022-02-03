@@ -15,6 +15,7 @@ def get_classes_name(train_dir):
     return class_names
 
 
+# CPU
 def get_data(train_dir, test_dir, valid_dir=None, class_mode=None, augmented=True):
     if augmented:
         train_data_gen = ImageDataGenerator(rescale=1. / 255.,
@@ -72,6 +73,34 @@ def get_data(train_dir, test_dir, valid_dir=None, class_mode=None, augmented=Tru
         return train_data, test_data, valid_data
     else:
         return train_data, test_data
+
+
+# GPU
+def get_dataset(train_dir, test_dir, valid_dir=None, class_mode=None):
+    train_data = tf.keras.preprocessing.image_dataset_from_directory(directory=train_dir,
+                                                                     image_size=IMG_SIZE,
+                                                                     label_mode=class_mode,
+                                                                     batch_size=BATCH_SIZE)
+
+    test_data = tf.keras.preprocessing.image_dataset_from_directory(directory=test_dir,
+                                                                    image_size=IMG_SIZE,
+                                                                    label_mode=class_mode,
+                                                                    batch_size=BATCH_SIZE)
+
+    return train_data, test_data
+
+
+# GPU
+def augmentation_layer():
+    data_augmentation = tf.keras.Sequential([
+        # tf.keras.layers.Rescaling(1. / 255),
+        tf.keras.layers.RandomFlip("horizontal"),
+        tf.keras.layers.RandomRotation(0.2),
+        tf.keras.layers.RandomZoom(0.2),
+        tf.keras.layers.RandomHeight(0.2),
+        tf.keras.layers.RandomWidth(0.2),
+    ], name="data_augmentation")
+    return data_augmentation
 
 
 def load_and_pred_image(filename, img_shape=224):

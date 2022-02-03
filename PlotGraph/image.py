@@ -17,3 +17,11 @@ def view_random_image(target_dir, class_name):
     print(img.shape)
     return img
 
+
+def dataset_random_image(dataset, train_dir):
+    target_class = random.choice(dataset.class_names)
+    target_dir = train_dir + "/" + target_class
+    rand_image = random.choice(os.listdir(target_dir))
+    rand_image_path = target_dir + "/" + rand_image
+    img = mpimg.imread(rand_image_path)
+    return img
