@@ -1,5 +1,5 @@
 from tensor_tool import image_data, file, callbacks
-from PlotGraph import loss_accuracy, image
+from plot_graph import loss_accuracy, image
 import tensorflow as tf
 import matplotlib.pyplot as plt
 import numpy as np

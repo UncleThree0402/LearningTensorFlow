@@ -2,6 +2,7 @@ import pathlib
 import numpy as np
 import tensorflow as tf
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
+import matplotlib.pyplot as plt
 
 IMG_SIZE = (224, 224)
 BATCH_SIZE = 32
@@ -109,3 +110,18 @@ def load_and_pred_image(filename, img_shape=224):
     img = tf.image.resize(img, size=[img_shape, img_shape])
     img = img / 255.
     return img
+
+
+def predict_with_model(filename, model, classes_name):
+    img = load_and_pred_image(filename)
+    img = tf.expand_dims(img, axis=0)
+    pred = model.predict(img)
+    if len(classes_name) <= 2:
+        pred_class = classes_name[int(tf.round(pred[0]))]
+    else:
+        pred_class = classes_name[int(tf.argmax(pred[0]))]
+
+    plt.imshow(img)
+    plt.axis(False)
+    plt.title(f"Prediction : {pred_class}")
+    plt.show()
