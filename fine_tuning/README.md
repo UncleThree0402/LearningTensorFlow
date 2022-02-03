@@ -1,5 +1,10 @@
 # Fine tuning
 
+## How
+* unfroze some of transferred model
+* lower learning rate
+* Add dataset
+
 ## Data
 
 Foods from [Food101](https://www.kaggle.com/kmader/food41)
@@ -192,10 +197,10 @@ history_4 = model_2.fit(train_data_all,
 
 ## Different
 
-| Model    | Info                                          | Dataset       | Accuracy |
-|----------|-----------------------------------------------|---------------|----------|
-| BaseLine | EfficientNetB0 without tuning                 | 10% 10_foods  ||
-| model_1  | EfficientNetB0 without tuning                 | 1% 10_foods   ||
-| model_2  | EfficientNetB0 without tuning                 | 10% 10_foods  ||
-| model_3  | EfficientNetB0 with tuning (last 10 layers)   | 10% 10_foods  ||
-| model_4  | EfficientNetB0 with tuning (last 10 layers)   | 100% 10_foods ||
+| Model    | Info                                          | Dataset       | Lost | Accuracy |
+|----------|-----------------------------------------------|---------------|-----|----------|
+| BaseLine | EfficientNetB0 without tuning                 | 10% 10_foods  |||
+| model_1  | EfficientNetB0 without tuning                 | 1% 10_foods   |||
+| model_2  | EfficientNetB0 without tuning                 | 10% 10_foods  |||
+| model_3  | EfficientNetB0 with tuning (last 10 layers)   | 10% 10_foods  |||
+| model_4  | EfficientNetB0 with tuning (last 10 layers)   | 100% 10_foods |||
