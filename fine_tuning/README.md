@@ -17,7 +17,7 @@ file.check_file("../Dataset/10_food_classes_1_percent")
 file.check_file("../Dataset/10_food_classes_all_data")
 ```
 
-> [`file`]()
+> [`file`](https://github.com/UncleThree0402/LearningTensorFlow/blob/master/tensor_tool/file.py)
 
 ## Preprocess
 
@@ -37,7 +37,7 @@ train_data_all, test_data_all = image_data.get_dataset("../Dataset/10_food_class
                                                        class_mode="categorical")
 ```
 
-> Return Dataset | [`image_data`]()
+> Return Dataset | [`image_data`](https://github.com/UncleThree0402/LearningTensorFlow/blob/master/tensor_tool/image_data.py)
 
 ## Model
 
@@ -71,8 +71,8 @@ history_0 = model_0.fit(train_data_10,
                             callbacks.create_tensorboard_callback("keras_application", "EfficientNetB0_baseline")])
 ```
 
-![Loss]()
-![Accuracy]()
+![Loss](https://github.com/UncleThree0402/LearningTensorFlow/blob/master/fine_tuning/Image/0_loss.png)
+![Accuracy](https://github.com/UncleThree0402/LearningTensorFlow/blob/master/fine_tuning/Image/0_ac.png)
 
 ### Model_1
 
@@ -103,8 +103,8 @@ history_1 = model_1.fit(train_data_1,
                                    callbacks.create_model_checkpoint("model_1_checkpoint")])
 ```
 
-![Loss]()
-![Accuracy]()
+![Loss](https://github.com/UncleThree0402/LearningTensorFlow/blob/master/fine_tuning/Image/1_loss.png)
+![Accuracy](https://github.com/UncleThree0402/LearningTensorFlow/blob/master/fine_tuning/Image/1_ac.png)
 
 ### Model_2
 
@@ -135,8 +135,8 @@ history_2 = model_2.fit(train_data_10,
                                    callbacks.create_model_checkpoint("model_2_checkpoint")])
 ```
 
-![Loss]()
-![Accuracy]()
+![Loss](https://github.com/UncleThree0402/LearningTensorFlow/blob/master/fine_tuning/Image/2_loss.png)
+![Accuracy](https://github.com/UncleThree0402/LearningTensorFlow/blob/master/fine_tuning/Image/2_ac.png)
 
 ### Model_3
 
@@ -165,8 +165,8 @@ history_3 = model_2.fit(train_data_10,
                                    callbacks.create_model_checkpoint("model_3_checkpoint")])
 ```
 
-![Loss]()
-![Accuracy]()
+![Loss](https://github.com/UncleThree0402/LearningTensorFlow/blob/master/fine_tuning/Image/3_loss.png)
+![Accuracy](https://github.com/UncleThree0402/LearningTensorFlow/blob/master/fine_tuning/Image/3_ac.png)
 
 ### Model_4
 
@@ -192,8 +192,8 @@ history_4 = model_2.fit(train_data_all,
                                    callbacks.create_model_checkpoint("model_4_checkpoint")])
 ```
 
-![Loss]()
-![Accuracy]()
+![Loss](https://github.com/UncleThree0402/LearningTensorFlow/blob/master/fine_tuning/Image/4_loss.png)
+![Accuracy](https://github.com/UncleThree0402/LearningTensorFlow/blob/master/fine_tuning/Image/4_ac.png)
 
 ## Different
 **5 epochs**
