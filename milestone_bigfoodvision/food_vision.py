@@ -3,6 +3,7 @@ import tensorflow as tf
 import numpy as np
 import pandas as pd
 from tensor_tool import image_data, callbacks
+from plot_graph import loss_accuracy
 import matplotlib.pyplot as plt
 
 dataset_list = tfds.list_builders()
@@ -68,10 +69,45 @@ model_0.compile(loss=tf.keras.losses.SparseCategoricalCrossentropy(),
                 optimizer=tf.keras.optimizers.Adam(),
                 metrics=["accuracy"])
 
-model_0.fit(train_data,
-            epochs=5,
-            steps_per_epoch=len(train_data),
-            validation_data=test_data,
-            validation_steps=len(test_data),
-            callbacks=[callbacks.create_tensorboard_callback("food101_model", "baseline"),
-                       callbacks.create_model_checkpoint("baseline_checkpoint")])
+history_0 = model_0.fit(train_data,
+                        epochs=5,
+                        steps_per_epoch=len(train_data),
+                        validation_data=test_data,
+                        validation_steps=len(test_data),
+                        callbacks=[callbacks.create_tensorboard_callback("food101_model", "baseline"),
+                                   callbacks.create_model_checkpoint("baseline_checkpoint")])
+
+result_0 = model_0.evaluate(test_data)
+
+loss_accuracy.plot_accuracy_curves(history_0)
+loss_accuracy.plot_loss_curves(history_0)
+
+# model_1
+
+model_0.load_weights("baseline_checkpoint/checkpoint.ckpt")
+
+base_model.trainable = True
+
+for layer in base_model.layers[:-10]:
+    layer.trainable = False
+
+for i, layer in enumerate(base_model.layers):
+    print(i, layer.name, layer.trainable)
+
+model_0.compile(loss=tf.keras.losses.SparseCategoricalCrossentropy(),
+                optimizer=tf.keras.optimizers.Adam(learning_rate=0.0001),
+                metrics=["accuracy"])
+
+history_1 = model_0.fit(train_data,
+                        epochs=10,
+                        initial_epoch=history_0.epoch[-1],
+                        steps_per_epoch=len(train_data),
+                        validation_data=test_data,
+                        validation_steps=len(test_data),
+                        callbacks=[callbacks.create_tensorboard_callback("food101_model", "fine_tune"),
+                                   callbacks.create_model_checkpoint("fine_tune_checkpoint")])
+
+result_1 = model_0.evaluate(test_data)
+
+loss_accuracy.plot_accuracy_curves(history_1)
+loss_accuracy.plot_loss_curves(history_1)
