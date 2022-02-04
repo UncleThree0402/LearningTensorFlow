@@ -18,3 +18,7 @@ def create_model_checkpoint(path):
                                                              save_freq="epoch",
                                                              verbose=1)
     return checkpoint_callback
+
+
+def create_early_stopping(monitor, patience):
+    return tf.keras.callbacks.EarlyStopping(monitor=monitor, patience=patience)

@@ -170,3 +170,8 @@ def create_y_labels_y_pred(pred_probs, test_data):
         y_labels.append(labels.numpy().argmax())
 
     return y_labels, pred_classes
+
+def preprocess_image(image, label, image_shape=224):
+    img = tf.image.resize(image, [image_shape, image_shape])
+    img = tf.cast(img, tf.float32)
+    return img , label
